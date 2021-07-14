@@ -61,3 +61,10 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    source: 'current'
+    artifact: 
+    path: $(Build.SourcesDirectory)/bin
+    
