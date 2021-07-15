@@ -13,6 +13,8 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+  donetSdkVersion: '5.x'
 
 steps:
 - task:  UseDotNet@2
@@ -63,8 +65,9 @@ steps:
   condition: succeeded()
 
 - task: DownloadPipelineArtifact@2
+  displayName: "Trying to get this downloaded"
   inputs:
     source: 'current'
     artifact: 
-    path: $(Build.SourcesDirectory)/bin
-    
+    path: '\\localhost\C$\SQLFiles\Scripts\'
+
